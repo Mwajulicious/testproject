@@ -1,0 +1,38 @@
+
+<h1>Employee-list</h1>
+<mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+<div class="row mt-3">
+    <div class="col-md-4">
+    <div class="search-user">
+        <input type="text" name="search-user" id="search-user-by-name" placeholder="Search Employee Name" class=" form-control">
+    </div>
+</div>
+</div>
+<table class="table table-bordered mt-2">
+    <thead>
+        <tr>
+             <th>Sn</th>
+            <th>First-Name</th>
+            <th>Last-NAme</th>
+            <th>Email-Address</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let employee of employees">
+            <td>{{employee.id}}</td>
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.emailAddress}}</td>
+            <td><button (click)= "updateEmployee(employee.id)"  mat-raised-button color="primary">
+               <mat-icon>edit</mat-icon> Edit</button>
+                <button (click)= "deleteEmployee(employee.id)" mat-raised-button color="accent" class="mx-2">
+                  <mat-icon>delete</mat-icon>  Delete</button>
+                <button (click)= "employeeDetails(employee.id)" mat-raised-button color="warn" class="mx-2">
+                   <mat-icon>bookmark</mat-icon> View</button>
+            </td>
+            
+        </tr>
+    </tbody>
+</table>
+<router-outlet></router-outlet>
